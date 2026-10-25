@@ -1,0 +1,33 @@
+{
+  "name": "service-desk-ai-walkthrough",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc --noEmit && vite build && node scripts/build/standalone.mjs",
+    "start": "vite --host 0.0.0.0",
+    "dev": "vite",
+    "preview": "vite preview --host 0.0.0.0",
+    "render:video": "node scripts/architecture/render-video.mjs",
+    "render:flow": "node scripts/data-flow/render-flow.mjs"
+  },
+  "dependencies": {
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "@napi-rs/canvas": "^0.1.80",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "esbuild": "^0.25.0",
+    "prettier": "3.9.10",
+    "typescript": "^5.7.3",
+    "vite": "^6.1.0"
+  }
+}

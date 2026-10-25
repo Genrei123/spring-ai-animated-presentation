@@ -1,0 +1,21 @@
+# Dependencies and generated output
+node_modules/
+dist/
+.work/
+coverage/
+*.tsbuildinfo
+*.log
+*.mp4
+*.zip
+
+# Local environment files (the demo does not require any)
+.env
+.env.*
+!.env.example
+
+# Local editor and operating-system files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+Desktop.ini
