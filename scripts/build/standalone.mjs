@@ -27,4 +27,10 @@ const flow = html.replace(
 
 fs.writeFileSync('dist/data-flow.html', flow);
 
-console.log('Self-contained architecture and data-flow presentations ready.');
+const builder = html.replace(
+  '<head>',
+  '<head><script>if(!location.hash)history.replaceState(null,"","#builder")</script>',
+);
+fs.writeFileSync('dist/component-builder.html', builder);
+
+console.log('Self-contained architecture, data-flow, and component-builder presentations ready.');

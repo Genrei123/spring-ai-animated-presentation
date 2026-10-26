@@ -210,6 +210,17 @@
     right: 14px;
   }
 }
+@media (min-width: 701px) and (max-width: 1000px) {
+  .flow-switch {
+    top: 59px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+  .flow-app .flow-stage {
+    top: 104px;
+  }
+}
 @media (max-width: 700px) {
   .experience-nav {
     top: 10px;
@@ -220,7 +231,7 @@
     padding: 6px 8px;
   }
   .flow-switch {
-    top: 52px;
+    top: 94px;
     left: 50%;
     right: auto;
     transform: translateX(-50%);
@@ -229,7 +240,7 @@
     font-size: 11px;
   }
   .flow-stage {
-    inset: 97px 0 105px;
+    inset: 139px 0 105px;
   }
   .flow-actions .example-label select {
     max-width: 125px;
@@ -240,7 +251,7 @@
     width: 28px;
   }
   .flow-actions {
-    top: 10px;
+    top: 52px;
     right: 8px;
   }
   .flow-prompt-button {

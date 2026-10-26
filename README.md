@@ -1,6 +1,6 @@
 ﻿# Service Desk AI walkthrough
 
-An interactive React and TypeScript presentation with two views: a Service Desk AI architecture tour and a document-to-answer data-flow demonstration.
+An interactive React and TypeScript presentation with three views: a Service Desk AI architecture tour, a document-to-answer data-flow demonstration, and a drag-and-connect component builder.
 
 Everything is scripted and runs locally. No API keys, environment files, database, backend service, or FFmpeg installation are needed to run the app.
 
@@ -21,10 +21,11 @@ On Windows, if PowerShell blocks `npm.ps1`, run `npm.cmd install` and `npm.cmd r
 
 - **Architecture:** a ten-scene, three-minute tour. Play or scrub the timeline, choose a scene, click components for explanations, drag to pan, and scroll to zoom. The original diagram, answer-reuse controls, and token sliders provide additional context.
 - **Data flow:** an eleven-stage, 2 minute 34 second walkthrough of document ingestion and question answering. Choose VPN support or application access, inspect chunks, or try an editable prompt. Matching uses a regular expression; unsupported questions follow a scripted Service Desk handoff.
+- **Component builder:** drag Chatbot or Knowledge search from the example Azure Artifacts library into the web application shell (or select **Add to shell**). Drag the component's AI port to Finance AI or Service Desk AI, or click the source port and then a service. Try the suggested question to see a scripted response and source for that domain. Move components by their titles, reconnect to switch domains, disconnect, remove, or reset. Escape cancels a pending connection. Bindings last while this view is open.
 - **Keyboard:** Space plays or pauses; Left/Right moves between stages; Escape dismisses panels when focus is outside the relevant form controls.
 - **Reduced motion:** available in each view's notes and initialized from your system preference.
 
-The views can also be opened using the URL hashes `#architecture` and `#flows`.
+The views can also be opened using the URL hashes `#architecture`, `#flows`, and `#builder`.
 
 ## Commands
 
@@ -90,7 +91,7 @@ Commit `src/`, `scripts/`, `index.html`, `package.json`, **`package-lock.json`**
 npm run build
 ```
 
-The build creates `dist/index.html` (architecture by default) and `dist/data-flow.html` (data flow by default). Each embeds the JavaScript, CSS, and reference image and includes both views. Open either file directly in a browser or share it for offline playback. External documentation links still need internet access.
+The build creates `dist/index.html` (architecture by default), `dist/data-flow.html` (data flow by default), and `dist/component-builder.html` (builder by default). Each embeds the JavaScript, CSS, and reference image and includes all three views. Open any file directly in a browser or share it for offline playback. External documentation links still need internet access.
 
 Generated files should not be edited directly. Change the source and rebuild.
 
@@ -119,10 +120,13 @@ Export intermediates go into `.work/`. Architecture uses a separate Canvas rende
 
 This is an illustrative concept presentation, not a live chatbot. It uploads no files and makes no AI or database calls. Embeddings, retrieved passages, responses, and token comparisons are scripted. The token comparison is not a total-cost forecast.
 
+The component builder demonstrates the intended distribution and composition workflow: publish versioned React packages to an Azure Artifacts npm feed and a Spring Boot starter to a Maven feed, install/register the UI packages in a shell, and bind components to deployed Spring AI services. Feed names, package names and versions are examples; this repository does not publish them. A connection selects a backend service with its configured model, retrieval and approved domain knowledge. Spring AI is the integration framework, not the model itself. Production needs an authenticated backend, saved application bindings and actual feed configuration. The builder has one scripted sample question per domain; other prompts show an explicit demo fallback.
+
 Production implementation would need document access filtering, cache eligibility checks, compatible embeddings, validated MongoDB/Spring AI integration, and an escalation path when evidence is missing. Conversation memory and answer reuse are separate concerns. Ingestion does not train the chat model. Model names shown are research candidates, not availability, pricing, or selection claims.
 
 Framework references:
 
 - [Spring AI retrieval-augmented generation](https://docs.spring.io/spring-ai/reference/api/retrieval-augmented-generation.html)
 - [Spring AI MongoDB Vector Search integration](https://docs.spring.io/spring-ai/reference/api/vectordbs/mongodb.html)
+
 # spring-ai-animated-presentation
